@@ -17,3 +17,17 @@ For future reference we will need a **requirements.txt** so that people can inst
 
 Whenever you add a new package, don't forget to run the following command: `pip freeze > requirements.txt`.
 This will update the requirements.txt file and will make sure other people can update their packages appropriately
+
+## Directory Structure
+Please follow the structure below to ensure consistency and convenience
+```bash
+ShearWall/
+├── regression/
+│   ├── concrete.csv
+│   └── *.py
+├── segmentation/
+│   ├── dataset/
+│   │   └── images
+│   └── *.py
+└── README.md
+```
