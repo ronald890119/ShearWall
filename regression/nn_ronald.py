@@ -50,7 +50,7 @@ loss_func = nn.MSELoss()
 # R-squared for validation
 metric = R2Score()
 optimiser = optim.AdamW(model.parameters(), lr=0.001)
-epoch = 1000
+epoch = 1500
 batch = 15
 batch_start = torch.arange(0, len(X_train), batch)
 avg_train_accuracy = []
@@ -93,7 +93,8 @@ plt.xlabel('Epoch')
 plt.ylabel('R-squared score')
 plt.show()
 
-#Epoch #999 with validation r2 score around 0.93 ~ 0.94
+# Epoch #999 with validation r2 score around 0.93 ~ 0.94
+# Epoch 1500 with validation r2 score around 0.95206
 
 # save the parameters of model and optimiser
 torch.save(model.state_dict(), f'model#{epoch}_{round(r2_val * 100)}.pth')
