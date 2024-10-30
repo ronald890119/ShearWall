@@ -50,7 +50,7 @@ if __name__ == '__main__':
         model.load_state_dict(torch.load('model.pth', weights_only=True))
         model.eval()
         
-        img = Image.open(args.img)
+        img = Image.open(args.img).convert('RGB')
         # width, height = img.size
         img = transform(img).unsqueeze(0)
         img = img.to(device)
