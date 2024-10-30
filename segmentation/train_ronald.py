@@ -39,7 +39,7 @@ class CrackDataset(Dataset):
         # transform image only
         self.train_transform = transforms.Compose([
             transforms.Resize((512, 512)),
-            transforms.RandomInvert(p=0.7),
+            transforms.RandomInvert(p=0.5),
             transforms.ColorJitter(brightness=0.5, contrast=0.5, saturation=0.5, hue=(0.15, 0.35)),
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
