@@ -43,3 +43,4 @@ ShearWall/
 ### Segmentation
 1. For crack segmentation, please execute `python predict.py [Type of model] [Image file name]`.
 2. Current available model includes FCN.
+3. An example of usage is `python predict.py FCN crack.png`
