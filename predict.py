@@ -47,7 +47,7 @@ if __name__ == '__main__':
         
         backbone = IntermediateLayerGetter(convnext_tiny(), {'features': "out"})
         model = FCN(backbone, MyClassifier(768, 1)).to(device)
-        model.load_state_dict(torch.load('model.pth', weights_only=True))
+        model.load_state_dict(torch.load('model_fcn.pth', weights_only=True))
         model.eval()
         
         img = Image.open(args.img).convert('RGB')

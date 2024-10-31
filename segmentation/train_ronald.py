@@ -221,5 +221,5 @@ if __name__ == '__main__':
     print('='*8 + f'Epoch: {epoch}' + '='*8)
     print(f'Final loss: {final_loss:.5f}')
     
-    torch.save(model.state_dict(), f'model.pth')
-    print(f'model.pth is saved!')
+    torch.save(model.state_dict(), f'model_fcn.pth')
+    print(f'model_fcn.pth is saved!')
