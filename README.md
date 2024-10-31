@@ -32,6 +32,7 @@ ShearWall/
 │   └── *.py
 └── README.md
 ├── predict.py
+├── *.pth
 └── requirements.txt
 ```
 
