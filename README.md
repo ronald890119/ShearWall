@@ -1,3 +1,4 @@
+
 # ShearWall
 This is a repo for 2024 S2 Capstone Project. More information will be added.
 
@@ -30,4 +31,17 @@ ShearWall/
 │   │   └── images
 │   └── *.py
 └── README.md
+├── predict.py
+├── *.pth
+└── requirements.txt
 ```
+
+## How to Run
+### Training
+1. For model training, please execute `python segmentation/train_*.py` in the root directory.
+2. Batch size can be adjusted based on the device.
+
+### Segmentation
+1. For crack segmentation, please execute `python predict.py [Type of model] [Image file name]`.
+2. Current available model includes FCN.
+3. An example of usage is `python predict.py FCN crack.png`
