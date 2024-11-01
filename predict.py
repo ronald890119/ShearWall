@@ -55,13 +55,12 @@ if __name__ == '__main__':
         
     elif args.model == 'STDC':
         transform = transforms.Compose([
-            transforms.Resize((512, 512)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+            transforms.Resize((224, 224)),
+            transforms.ToTensor()
         ])
         # Load the trained model
-        stdc_model = STDCNetForSegmentation(num_classes=1)
-        stdc_model.load_state_dict(torch.load('model_stdc.pth'))
+        stdc_model = STDCNetForSegmentation(num_classes=1).to(device)
+        stdc_model.load_state_dict(torch.load('model_stdc.pth', weights_only=True))
         stdc_model.eval()  
         
         img = Image.open(args.img).convert('RGB')
@@ -69,7 +68,7 @@ if __name__ == '__main__':
         img = transform(img).unsqueeze(0)
         img = img.to(device)
         
-        output = stdc_model(img)['out']
+        output = stdc_model(img)
         output = torch.sigmoid(output)
         output = torch.squeeze(output, 0)
         output = np.transpose(output.cpu().detach().numpy(), (1, 2, 0))
@@ -79,7 +78,6 @@ if __name__ == '__main__':
         
         plt.imshow(output, cmap='gray')
         plt.show()
-        
         
     else:
         print('No model available!')
