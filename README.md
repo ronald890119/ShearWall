@@ -1,10 +1,12 @@
-
 # ShearWall
-This is a repo for 2024 S2 Capstone Project. More information will be added.
+This is a repo for 2024 S2 Capstone Project.
+
+## Dataset
+The images for this project are from this [repo](https://github.com/fyangneil/pavement-crack-detection). The datasets include training set, validation set, and testing set. All of them have two versions, which include high resolution and cropped images. 
 
 ## Virtual Environment
-It is recommended that we install packages in a virtual environment.
-To setup virtual environment for the first time: `python3 -m venv venv`
+It is recommended that installing packages in a virtual environment.
+To setup virtual environment for the first time please execute: `python3 -m venv venv`
 
 To Activate the virtual environment:
 - Linux: `source venv/bin/activate`
@@ -36,6 +38,10 @@ ShearWall/
 └── requirements.txt
 ```
 
+## Trained Models
+Due to the file limitation, the trained models are available from [Google Drive](https://drive.google.com/drive/u/0/folders/1t4K7JDZUPHxSTxJVII-lFqUv-Uc4znv5).
+⚠️**The link will be available until 12/31/2024, please download them if needed**⚠️
+
 ## How to Run
 ### Training
 1. For model training, please execute `python segmentation/train_*.py` in the root directory.
@@ -43,5 +49,5 @@ ShearWall/
 
 ### Segmentation
 1. For crack segmentation, please execute `python predict.py [Type of model] [Image file name]`.
-2. Current available model includes FCN.
+2. Current available models include FCN and STDC.
 3. An example of usage is `python predict.py FCN crack.png`
