@@ -2,7 +2,7 @@
 This is a repo for 2024 S2 Capstone Project.
 
 ## Dataset
-The images for this project are from this [repo](https://github.com/fyangneil/pavement-crack-detection). The datasets include training set, validation set, and testing set. All of them have two versions, which include high resolution and cropped images. 
+The images for this project are from this [repo](https://github.com/fyangneil/pavement-crack-detection). The datasets include training set, validation set, and testing set. All of them have two versions, which include high resolution and cropped images. After downloading the dataset, please follow the required directory structure below to prevent path issues.
 
 ## Virtual Environment
 It is recommended that installing packages in a virtual environment.
@@ -25,14 +25,22 @@ This will update the requirements.txt file and will make sure other people can u
 Please follow the structure below to ensure consistency and convenience
 ```bash
 ShearWall/
-├── regression/
-│   ├── concrete.csv
-│   └── *.py
 ├── segmentation/
 │   ├── dataset/
-│   │   └── images
+│   │   ├── testcrop/
+│   │   │   ├── img/
+│   │   │   └── mask/
+│   │   ├── testdata/
+│   │   ├── traincrop/
+│   │   │   ├── img/
+│   │   │   └── mask/
+│   │   ├── traindata/
+│   │   ├── valcrop/
+│   │   │   ├── img/
+│   │   │   └── mask/
+│   │   └── valdata/
 │   └── *.py
-└── README.md
+├── README.md
 ├── predict.py
 ├── *.pth
 └── requirements.txt
