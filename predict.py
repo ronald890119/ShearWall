@@ -14,25 +14,11 @@ from tqdm import tqdm
 import numpy as np
 from torchvision.models._utils import IntermediateLayerGetter
 import argparse
-
-class MyClassifier(nn.Module):
-    def __init__(self, in_channels=768, out_channels=1) -> None:
-        super().__init__()
-        inter_channels = in_channels // 4
-        self.conv = nn.Sequential(
-            nn.Conv2d(in_channels, inter_channels, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False),
-            nn.BatchNorm2d(inter_channels, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True),
-            nn.ReLU(),
-            nn.Dropout(p=0.1, inplace=False),
-            nn.Conv2d(inter_channels, 1, kernel_size=(1, 1), stride=(1, 1)),
-        )
-        
-    def forward(self, x):
-        return self.conv(x)
+from segmentation.train_ronald import MyClassifier
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Optional app description')
-    parser.add_argument('model', type=str, help='A required model type argument. Available models: FCN')
+    parser.add_argument('model', type=str, help='A required model type argument. Available models: FCN, STDC')
     parser.add_argument('img', type=str, help='A required image file name argument')
     args = parser.parse_args()
     
